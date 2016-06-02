@@ -44,10 +44,10 @@ else
     if File.file? arg
       files << arg
     elsif File.directory? arg
-      path = arg + "/**"
+      path = arg + "/**/**"
       Dir[path].each { |file| files << file if File.file?(file) }
     elsif File.directory?(Dir.home + "/" + arg)
-      path = Dir.home + "/" + arg + "/**"
+      path = Dir.home + "/" + arg + "/**/**"
       Dir[path].each { |file| files << file if File.file?(file) }
     end
   end
